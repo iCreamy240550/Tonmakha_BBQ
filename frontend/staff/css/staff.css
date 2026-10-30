@@ -1,0 +1,712 @@
+/* frontend/staff/css/staff.css — สไตล์เว็บแอปพนักงาน/เจ้าของร้าน (คัดลอกจาก ui/app.py และ ui/**) */
+
+body.staff-body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.staff-root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==================== หน้าล็อกอิน (LoginPage) ==================== */
+.login-screen {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  background-color: var(--color-bg);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.login-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.login-brand {
+  font-size: var(--fs-stat);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.login-sub {
+  font-size: var(--fs-md);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.login-error {
+  font-size: var(--fs-base);
+  color: var(--color-danger);
+  min-height: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+/* ==================== โครงหลัก (Sidebar 230px + Right Area) ==================== */
+.app-shell {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-sidebar {
+  width: 230px;
+  background-color: var(--color-sidebar);
+  color: var(--color-sidebar-text);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-4) var(--space-3);
+}
+
+.sidebar-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.sidebar-title {
+  font-size: var(--fs-title);
+  font-weight: 700;
+  color: var(--color-sidebar-text);
+}
+
+.sidebar-nav {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--space-1) var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar-group-label {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-sidebar-muted);
+  padding: var(--space-3) var(--space-3) var(--space-1);
+  text-align: left;
+}
+
+.sidebar-nav-btn {
+  width: 100%;
+  height: var(--nav-item-h);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  color: var(--color-sidebar-text);
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.sidebar-nav-btn:hover {
+  background-color: var(--color-sidebar-hover);
+}
+
+.sidebar-nav-btn.is-active {
+  background-color: var(--color-sidebar-active);
+  color: var(--color-text-on-dark);
+  font-weight: 700;
+}
+
+.sidebar-footer {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  border-top: 1px solid var(--color-sidebar-hover);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar-user-name {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-sidebar-text);
+}
+
+.sidebar-user-role {
+  font-size: var(--fs-sm);
+  color: var(--color-sidebar-muted);
+  margin-bottom: var(--space-1);
+}
+
+.sidebar-logout-btn {
+  width: 100%;
+  height: 36px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-sidebar-muted);
+  color: var(--color-sidebar-text);
+  background-color: transparent;
+  font-size: var(--fs-base);
+  font-weight: 700;
+}
+
+.sidebar-logout-btn:hover {
+  background-color: var(--color-sidebar-hover);
+}
+
+/* ==================== พื้นที่ด้านขวา (Topbar + AlertCenter + Content) ==================== */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+}
+
+.app-topbar {
+  height: var(--topbar-h);
+  background-color: var(--color-card);
+  border-bottom: 1px solid var(--color-card-border);
+  padding: var(--space-2) var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.topbar-title {
+  font-size: var(--fs-2xl);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.shop-control-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* ==================== ศูนย์แจ้งเตือนด่วน (AlertCenter แถบแดง) ==================== */
+.alert-center {
+  background-color: var(--color-alert-bg);
+  color: var(--color-alert-text);
+  padding: var(--space-2) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.alert-center.is-flashing {
+  animation: alert-pulse 0.7s ease-in-out 2;
+}
+
+@keyframes alert-pulse {
+  0%, 100% { background-color: var(--color-alert-bg); }
+  50% { background-color: #9e1c1c; }
+}
+
+.alert-head {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--color-alert-text);
+}
+
+.alert-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+}
+
+.alert-row-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  flex: 1;
+}
+
+.alert-kind-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.alert-msg {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-alert-text);
+}
+
+.alert-row-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+
+.alert-row-actions .btn {
+  height: 32px;
+  min-width: 96px;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--fs-base);
+}
+
+.alert-more {
+  font-size: var(--fs-sm);
+  color: var(--color-alert-text);
+}
+
+/* ==================== พื้นที่เนื้อหาแต่ละหน้า ==================== */
+.app-content {
+  flex: 1 1 auto;
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* ==================== กริดการ์ดมาตรฐาน (ความสูงเท่ากันทั้งแถว + ปุ่มท้ายการ์ดอยู่ระดับเดียวกัน) ==================== */
+.tables-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.table-card,
+.order-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-2);
+  height: 100%;
+}
+
+.table-card.status-pending {
+  border-width: 3px;
+  border-color: var(--status-pending);
+}
+
+.table-card.status-open {
+  border-color: var(--status-open);
+}
+
+.table-card.status-awaiting_payment {
+  border-color: var(--status-awaiting-payment);
+}
+
+.order-card.status-new {
+  border-width: 2px;
+  border-color: var(--order-new);
+}
+
+.order-card.status-preparing {
+  border-color: var(--order-preparing);
+}
+
+.card-top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.card-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.table-card .card-footer {
+  min-height: 76px;
+}
+
+.card-btn-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.card-btn-row .btn {
+  min-width: 0;
+  flex: 1 1 0;
+  padding: var(--space-1) var(--space-2);
+  height: 32px;
+  font-size: var(--fs-sm);
+}
+
+/* ==================== เลย์เอาต์แบ่ง 2 คอลัมน์ (ชั่งน้ำหนัก / เช็คเอาท์ / เมนู / สต๊อก / โต๊ะ-QR) ==================== */
+.split-layout {
+  display: grid;
+  gap: var(--space-3);
+  width: 100%;
+  align-items: stretch;
+}
+
+.split-weigh {
+  grid-template-columns: 3fr 2fr;
+}
+
+.split-checkout {
+  grid-template-columns: 2fr 5fr;
+}
+
+.split-menu {
+  grid-template-columns: 220px 1fr;
+}
+
+.split-stock {
+  grid-template-columns: 6fr 4fr;
+}
+
+.split-tables-manage {
+  grid-template-columns: 6fr 4fr;
+}
+
+.split-dashboard-two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* Segmented buttons */
+.seg-group {
+  display: inline-flex;
+  background-color: var(--color-row-alt);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-1);
+  gap: var(--space-1);
+}
+
+.seg-btn {
+  height: 32px;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+.seg-btn.is-active {
+  background-color: var(--color-primary);
+  color: var(--color-text-on-dark);
+}
+
+/* กรอบใบเสร็จรับเงิน (ReceiptDialog) */
+.receipt-paper {
+  background-color: #ffffff;
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: 'Prompt', sans-serif;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.receipt-center {
+  text-align: center;
+  width: 100%;
+}
+
+.receipt-divider {
+  height: 1px;
+  background-color: var(--color-text);
+  margin: var(--space-2) 0;
+  width: 100%;
+}
+
+.receipt-meta-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+}
+
+.receipt-line-row {
+  display: grid;
+  grid-template-columns: 56px 1fr 96px;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  align-items: baseline;
+}
+
+.receipt-sum-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+
+.receipt-sum-val {
+  min-width: 105px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* สำหรับพิมพ์ใบเสร็จ (window.print) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .receipt-paper,
+  .receipt-paper * {
+    visibility: visible;
+  }
+  .receipt-paper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    max-height: none;
+    overflow: visible;
+    border: none;
+    padding: var(--space-2);
+  }
+}
+
+/* ==================== หน้าสั่งกลับบ้าน (TakeawayPage) ==================== */
+.split-takeaway {
+  grid-template-columns: 2fr 3fr;
+}
+
+.takeaway-cart-head {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-table-header);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.takeaway-cart-list {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 200px;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.takeaway-cart-row {
+  display: grid;
+  grid-template-columns: 1fr 120px 120px;
+  gap: var(--space-2);
+  align-items: center;
+  padding: var(--space-2) var(--space-3);
+  background-color: var(--color-row-alt);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+}
+
+.takeaway-cart-row-weigh {
+  background-color: var(--color-today-highlight);
+  border-color: var(--color-primary);
+}
+
+.takeaway-summary-box {
+  border-top: 1px solid var(--color-card-border);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.takeaway-weigh-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  background-color: var(--color-row-alt);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-card-border);
+}
+
+.takeaway-weight-input {
+  flex: 1 1 80px;
+  min-width: 72px;
+  height: 38px;
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  text-align: right;
+}
+
+.takeaway-cat-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.takeaway-items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.takeaway-item-card {
+  background-color: var(--color-row-alt);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-2);
+  height: 100%;
+}
+
+/* ==================== หน้าโปรโมชั่น 2 ฝั่ง (PromoPage) ==================== */
+.split-promo {
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.promo-side-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  min-width: 0;
+}
+
+.promo-side-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.promo-side-title {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.promo-side-subtitle {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+.promo-side-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.split-promo .data-table th,
+.split-promo .data-table td {
+  padding: var(--space-2) var(--space-2);
+}
+
+.members-modal-summary {
+  background-color: var(--color-row-alt);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}

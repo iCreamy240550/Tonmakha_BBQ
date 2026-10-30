@@ -1,0 +1,95 @@
+/* frontend/shared/css/tokens.css — Design tokens จาก ui/theme.py และ web/components.py */
+
+:root {
+  /* ฟอนต์เดียวทั้งระบบ */
+  --font-main: 'Prompt', sans-serif;
+
+  /* สีหลักจาก ui/theme.py (COLORS) */
+  --color-bg: #f6f1ea;
+  --color-card: #ffffff;
+  --color-card-border: #e6dccd;
+  --color-sidebar: #2b2118;
+  --color-sidebar-hover: #44342a;
+  --color-sidebar-active: #e8590c;
+  --color-sidebar-text: #f3e9dc;
+  --color-sidebar-muted: #a89886;
+  --color-primary: #e8590c;
+  --color-primary-hover: #c94a07;
+  --color-success: #2f9e44;
+  --color-success-hover: #278a3a;
+  --color-danger: #e03131;
+  --color-danger-hover: #c02a2a;
+  --color-warning: #f08c00;
+  --color-warning-hover: #d67a00;
+  --color-info: #1c7ed6;
+  --color-info-hover: #1a6fbd;
+  --color-neutral: #868e96;
+  --color-neutral-hover: #6c747c;
+  --color-text: #2b2118;
+  --color-text-muted: #7a6d60;
+  --color-text-on-dark: #ffffff;
+  --color-input-bg: #ffffff;
+  --color-input-border: #d4c7b4;
+  --color-row-alt: #faf6f0;
+  --color-row-hover: #f1e8da;
+  --color-alert-bg: #c92a2a;
+  --color-alert-text: #ffffff;
+  --color-today-highlight: #efe6d8;
+
+  /* สีตามสถานะโต๊ะ/รอบ (STATUS_COLORS) */
+  --status-free: #868e96;
+  --status-pending: #f08c00;
+  --status-open: #2f9e44;
+  --status-awaiting-payment: #1c7ed6;
+  --status-closed: #495057;
+  --status-cancelled: #e03131;
+
+  /* สีตามสถานะออเดอร์ (ORDER_STATUS_COLORS) */
+  --order-new: #e03131;
+  --order-preparing: #f08c00;
+  --order-served: #2f9e44;
+  --order-cancelled: #868e96;
+
+  /* สีฝั่งลูกค้า (web/components.py) */
+  --customer-bg: #fff7ed;
+  --customer-secondary: #2b2118;
+  --customer-accent: #7a6d60;
+
+  /* ระบบระยะเดียวทั้งโปรเจกต์ (PLAN §4.2: 4, 8, 12, 16, 24, 32, 48 px เท่านั้น) */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* ขนาดฟอนต์ตามโค้ดเดิม */
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 14px;
+  --fs-md: 15px;
+  --fs-lg: 16px;
+  --fs-xl: 18px;
+  --fs-2xl: 20px;
+  --fs-title: 22px;
+  --fs-page-title: 24px;
+  --fs-stat: 28px;
+  --fs-hero: 32px;
+
+  /* ความสูงปุ่ม/ช่องกรอกมาตรฐาน */
+  --btn-h-sm: 32px;
+  --btn-h-md: 40px;
+  --btn-h-lg: 48px;
+  --input-h: 42px;
+  --nav-item-h: 38px;
+  --topbar-h: 60px;
+  --sidebar-w: 230px;
+
+  /* มุมโค้ง */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+}

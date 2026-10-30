@@ -1,0 +1,29 @@
+# ความลับ
+.env
+.env.*
+!.env.example
+web_secret.key
+*.pem
+
+# ฐานข้อมูลและไฟล์ที่สร้างตอนรัน
+*.db
+backups/
+exports/
+assets/qr_codes/
+*.log
+
+# ไฟล์ที่ผู้ใช้อัปโหลด
+assets/uploads/menu/*
+!assets/uploads/menu/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# เครื่องมือแก้ไขโค้ด / ระบบปฏิบัติการ
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

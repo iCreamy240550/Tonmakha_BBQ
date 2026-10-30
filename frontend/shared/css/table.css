@@ -1,0 +1,140 @@
+/* frontend/shared/css/table.css — ตารางกลาง (PLAN §4.3: <table> เดียว, colgroup, sticky thead, แถวสูงเท่ากัน) */
+
+.data-table-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+}
+
+.data-table-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.data-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: 'Prompt', sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: var(--color-sidebar);
+}
+
+.data-table thead tr {
+  height: 44px;
+  background-color: var(--color-sidebar);
+}
+
+.data-table th {
+  background-color: var(--color-sidebar);
+  color: var(--color-sidebar-text);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  padding: var(--space-2) var(--space-2);
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.data-table tbody tr {
+  height: 48px;
+  background-color: var(--color-card);
+  border-bottom: 1px solid var(--color-card-border);
+  transition: background-color 0.1s ease;
+}
+
+.data-table tbody tr.row-tall {
+  height: 64px;
+}
+
+.data-table tbody tr.row-alt {
+  background-color: var(--color-row-alt);
+}
+
+.data-table tbody tr:hover,
+.data-table tbody tr.row-selected {
+  background-color: var(--color-row-hover);
+}
+
+.data-table td {
+  color: var(--color-text);
+  font-weight: 400;
+  font-size: var(--fs-sm);
+  padding: var(--space-2) var(--space-2);
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.data-table td.cell-wrap {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.data-table td.cell-nowrap {
+  white-space: nowrap;
+}
+
+/* การจัดแนวคอลัมน์ (th และ td ใช้คลาสเดียวกันต่อคอลัมน์) */
+.data-table th.align-w,
+.data-table td.align-w {
+  text-align: left;
+}
+
+.data-table th.align-center,
+.data-table td.align-center {
+  text-align: center;
+}
+
+.data-table th.align-e,
+.data-table td.align-e {
+  text-align: right;
+}
+
+/* กลุ่มปุ่มในคอลัมน์จัดการ */
+.table-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: nowrap;
+  max-width: 100%;
+}
+
+.table-actions .btn {
+  height: 28px;
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--fs-xs);
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.data-table-empty {
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-lg);
+}
+
+.data-table-footer-note {
+  padding: var(--space-2) var(--space-2);
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  background-color: var(--color-row-alt);
+  border-top: 1px solid var(--color-card-border);
+}
